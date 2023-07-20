@@ -65,7 +65,14 @@ model.1 <- lm(SIMS~ARM,data=data)
 summary.lm(model.1)
 ```
 
- 
+Both the intercept and the coefficient fo ARM strength are significantly different from 0.
+
+```{r}
+newdata = data.frame(ARM=88,GRIP=94)
+predict(model.1,newdata,interval="predict")
+```
+
+The prediction interval is from -1.7 to 3.1 for SIM score.
 
 #### Predict at target point
 
