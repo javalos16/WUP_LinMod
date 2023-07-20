@@ -30,15 +30,42 @@ require(knitr)
 data <- read.csv(file="https://onlinestatbook.com/case_studies_rvls/physical_strength/data.txt",sep="",header=TRUE)  
 
 ```
+# Introduction
+
+I will be utilize ANOVA to determine what model between Model 1, Model 2, and Model 3, to determine strength score based on arm and grip strength. I will be using three models, and the response variable as well as the numerical variable. I will be using the "num~num" helper file for this analysis.
 
 ## Model 1 SIM~ARMS
+
+## Results
+
+### Graphical results
+
+```{r}
+model.1 <- lm(SIMS~ARM,data=data)
+plot(SIMS~ARM,data=data)
+abline(model.1,col='red')
+```
+
+As arm strength goes up, the simulation indicates that the sims goes up as well.
 
 ### scatterplot
 
 ### Numerical results
 
+```{r}
+cor(SIMS~ARM,data=data)
+```
+
+The correlation is O.69 which shows that arm strength is related to sim score. 
 
 ### Inferential  (Build model.1)
+
+```{r}
+model.1 <- lm(SIMS~ARM,data=data)
+summary.lm(model.1)
+```
+
+ 
 
 #### Predict at target point
 
