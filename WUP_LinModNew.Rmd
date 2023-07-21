@@ -97,7 +97,7 @@ As grip strength goes up, the simulation indicates that the sims goes up as well
 cor(SIMS~GRIP,data=data)
 ```
 
-The correlation is O.64 which shows that arm strength is related to sim score. 
+The correlation is O.64 which shows that grip strength is related to sim score. 
 
 ### Inferential  (Build model.1)
 
@@ -119,27 +119,14 @@ predict(model.2,newdata,interval="predict")
 
 The prediction interval is from -0.54 to -3.1 for SIM score.
 
-### Now add in scatterplot
-
-
-### Numerical results 
-
-
-### Inferential  (Build model.2)
-  
-
-#### predict model.2 at target point
-
-#### now add the model fit to our plot for model.2
-  
 
 
 ## Model 3 SIM~ARM+GRIP
 
 
 
-As arm plus grip strength goes up, the simulation indicates that the sims goes up as well.
-I regect the null hypothesis
+As arm plus grip strength goes up, the simulation indicates that the sims goes up as well. The rss is smaller for model 3, than the other two models. Since the rss is smaller for model 3. I reject the null hypothesis.
+  
 
 ### Numerical results
 
@@ -178,3 +165,17 @@ The prediction interval is from 0.15 to -2.13 for SIM score.
 
 ## Informally compare Model.1 with model.2
 
+```{r}
+anova(model.3,model.1)
+```
+
+The p value is .00000499 so I reject null Hypothesis. model one is better than model two because the rss for model one is smaller.
+
+```{r}
+anova(model.3,model.2)
+```
+Model three is smaller then model two because the rss for model three is smaller.
+
+# Discussions and Conclusions
+
+In regards to the original question comparing both arm and grip strength to determine which is the best. Model three is the best because it has a smaller rss than model one and model two. In regards to which is better than model 1 and model two, model 1 is better than model 2 because the rss is smaller.
